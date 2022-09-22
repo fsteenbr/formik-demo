@@ -23,17 +23,15 @@ const App = () => (
 
     <Formik
       initialValues={{ email: "" }}
-      onSubmit={async values => {
-        await new Promise(resolve => setTimeout(resolve, 500));
+      onSubmit={async (values) => {
+        await new Promise((resolve) => setTimeout(resolve, 500));
         alert(JSON.stringify(values, null, 2));
       }}
       validationSchema={Yup.object().shape({
-        email: Yup.string()
-          .email()
-          .required("Required")
+        email: Yup.string().email().required("Required")
       })}
     >
-      {props => {
+      {(props) => {
         const {
           values,
           touched,
@@ -48,7 +46,7 @@ const App = () => (
         return (
           <form onSubmit={handleSubmit}>
             <label htmlFor="email" style={{ display: "block" }}>
-              Email
+              Emailx
             </label>
             <input
               id="email"
